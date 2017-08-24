@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AlumnosApp.Paginas.PaginaTareaAlumno">
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10" BackgroundColor="White">
+            <ActivityIndicator x:Name="activityIndicator" Style="{StaticResource Indicador}"/>
+            <Label Text="{Binding Tarea.Titulo}" Style="{StaticResource LabelTitulo}" />
+            <BoxView Style="{StaticResource Linea}"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha límite:" Style="{StaticResource LabelTitulo}"/>
+                <Label Text="{Binding Tarea.FechaLimite, Converter={StaticResource ConvertidorFecha}}" Style="{StaticResource LabelNormal}"/>
+            </StackLayout>
+            <BoxView Style="{StaticResource Linea}"/>
+
+            <Label Text="Mensaje del alumno:" Style="{StaticResource LabelTitulo}"/>
+            <Entry Text="{Binding Mensaje}" Style="{StaticResource CajaTexto}"/>
+            <BoxView Style="{StaticResource Linea}"/>
+                        
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha respuesta:" Style="{StaticResource LabelTitulo}"/>
+                <Label Text="{Binding Fecha, Converter={StaticResource ConvertidorFecha}}"  Style="{StaticResource LabelNormal}"/>
+            </StackLayout>
+            <BoxView Style="{StaticResource Linea}"/>
+        </StackLayout>
+    </ScrollView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SeleccionarArchivo" Text="Seleccionar" Order="Primary" Priority="0" Clicked="SeleccionarArchivo_Clicked"/>
+        <ToolbarItem x:Name="VerTarea" Text="Tarea" Order="Primary" Priority="1" Clicked="VerTarea_Clicked"/>
+        <ToolbarItem x:Name="VerRespuesta" Text="Respuesta" Order="Primary" Priority="2" Clicked="VerRespuesta_Clicked"/>
+        <ToolbarItem x:Name="EnviarTarea" Text="Enviar" Order="Primary" Priority="3" Clicked="EnviarTarea_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

@@ -1,10 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Convertidor="clr-namespace:AlumnosApp.Converters"
              x:Class="AlumnosApp.App">
-	<Application.Resources>
+    <Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Convertidor:ConvertidorEvaluacionTarea x:Key="ConvertidorEvaluacionTarea"/>
+            <Convertidor:ConvertidorFecha x:Key="ConvertidorFecha"/>
+            <Convertidor:ConvertidorMensajeCorto x:Key="ConvertidorMensajeCorto"/>
 
-	</Application.Resources>
+            <Style x:Key="LabelNormal" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+
+            <Style x:Key="LabelTitulo" TargetType="Label" BasedOn="{StaticResource LabelNormal}">
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="LabelDetalle" TargetType="Label">
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="#030303"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="Margin" Value="12,5,12,1"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+
+            <Style x:Key="Indicador" TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="Blue"/>
+            </Style>
+
+            <Style x:Key="Lista" TargetType="ListView">
+                <Setter Property="HasUnevenRows" Value="True"/>
+            </Style>
+
+            <Style x:Key="Linea" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="CajaTexto" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+
+            <Style x:Key="FotoAlumno" TargetType="Image">
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>

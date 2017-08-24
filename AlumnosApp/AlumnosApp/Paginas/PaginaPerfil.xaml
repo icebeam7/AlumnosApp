@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AlumnosApp.Paginas.PaginaPerfil">
+    <StackLayout Padding="10" Spacing="10" BackgroundColor="White">
+        <Image x:Name="imgFoto" Source="{Binding FotoURLSAS}" Style="{StaticResource FotoAlumno}"/>
+
+        <Label Text="Nombre:" Style="{StaticResource LabelTitulo}"/>
+        <Entry Text="{Binding Nombre}"  Style="{StaticResource CajaTexto}"/>
+
+        <Label Text="Usuario:" Style="{StaticResource LabelTitulo}"/>
+        <Entry Text="{Binding Usuario}"  Style="{StaticResource CajaTexto}"/>
+
+        <Label Text="Password:" Style="{StaticResource LabelTitulo}"/>
+        <Entry Text="{Binding Password}" IsPassword="True" Style="{StaticResource CajaTexto}"/>
+
+        <ActivityIndicator x:Name="activityIndicator" Style="{StaticResource Indicador}"/>
+    </StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Foto" Text="Foto" Order="Primary" Priority="0" Clicked="Foto_Clicked"/>
+        <ToolbarItem x:Name="Guardar" Text="Guardar" Order="Primary" Priority="1" Clicked="Guardar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AlumnosApp.Paginas.PaginaMenu">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Bienvenido" Style="{StaticResource LabelTitulo}"/>
+            <Label Text="{Binding Nombre}" Style="{StaticResource LabelTitulo}"/>
+        </StackLayout>
+        <Image Source="{Binding FotoURLSAS}" Style="{StaticResource FotoAlumno}"/>
+    </StackLayout>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="TareasPendientes" Text="Tareas Pendientes" Order="Primary" Priority="0" Clicked="TareasPendientes_Clicked"/>
+        <ToolbarItem x:Name="MisTareas" Text="Mis Tareas" Order="Primary" Priority="1" Clicked="MisTareas_Clicked"/>
+        <ToolbarItem x:Name="MiPerfil" Text="Mi Perfil" Order="Primary" Priority="2" Clicked="MiPerfil_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

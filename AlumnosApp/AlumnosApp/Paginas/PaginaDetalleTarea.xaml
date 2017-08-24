@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AlumnosApp.Paginas.PaginaDetalleTarea">
+
+    <StackLayout Padding="10" Spacing="10" BackgroundColor="White">
+        <Label Text="{Binding Titulo}" Style="{StaticResource LabelTitulo}"/>
+        <BoxView Style="{StaticResource Linea}"/>
+
+        <Label Text="Publicada el día" Style="{StaticResource LabelTitulo}"/>
+        <Label Text="{Binding FechaPublicacion, Converter={StaticResource ConvertidorFecha}}"  Style="{StaticResource LabelNormal}"/>
+        <BoxView Style="{StaticResource Linea}"/>
+        
+        <Label Text="Fecha máxima de entrega" Style="{StaticResource LabelTitulo}"/>
+        <Label Text="{Binding FechaLimite, Converter={StaticResource ConvertidorFecha}}"  Style="{StaticResource LabelNormal}"/>
+                 
+        <ActivityIndicator x:Name="activityIndicator" Style="{StaticResource Indicador}"/>
+    </StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Enviar" Text="Enviar" Order="Primary" Priority="0" Clicked="Enviar_Clicked"/>
+        <ToolbarItem x:Name="Ver" Text="Archivo" Order="Primary" Priority="1" Clicked="Ver_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

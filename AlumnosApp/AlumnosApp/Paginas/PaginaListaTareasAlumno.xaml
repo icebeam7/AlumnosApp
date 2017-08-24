@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AlumnosApp.Paginas.PaginaListaTareasAlumno">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Mostrar tareas evaluadas" Style="{StaticResource LabelTitulo}" />
+                <Switch x:Name="switchTareaEvaluada" Toggled="switchTareaEvaluada_Toggled" IsToggled="False" />
+            </StackLayout>
+
+            <ActivityIndicator x:Name="activityIndicator" Style="{StaticResource Indicador}"/>
+            <ListView x:Name="lsvTareasAlumnos" ItemSelected="lsvTareasAlumnos_ItemSelected" Style="{StaticResource Lista}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="White" Spacing="5" Padding="5">
+                                <Label Text="{Binding Mensaje, Converter={StaticResource ConvertidorMensajeCorto}}" Style="{StaticResource LabelDetalle}" />
+                                <Label Text="{Binding Fecha, Converter={StaticResource ConvertidorFecha}}" Style="{StaticResource LabelDetalle}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Calificacion}" Style="{StaticResource LabelDetalle}" />
+                                    <Label Text="{Binding Evaluado, Converter={StaticResource ConvertidorEvaluacionTarea}}" Style="{StaticResource LabelDetalle}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
