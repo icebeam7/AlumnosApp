@@ -13,7 +13,7 @@ namespace AlumnosApp.Servicios
 {
     public static class ServicioWebApi
     {
-        const string WebApiURL = "actualizar-valor";
+        const string WebApiURL = "modificar-valor";
 
         private static HttpClient Cliente = new HttpClient() { BaseAddress = new Uri(WebApiURL) };
 
@@ -81,8 +81,8 @@ namespace AlumnosApp.Servicios
             Cliente.DefaultRequestHeaders.Accept.Clear();
             Cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //var url = $"{WebApiURL}/api/Tareas/GetTareasNoRealizadasByAlumno/{idAlumno}";
-            var url = $"{WebApiURL}/api/Tareas/";
+            var url = $"{WebApiURL}/api/Tareas/GetTareasNoRealizadasByAlumno/{idAlumno}";
+            //var url = $"{WebApiURL}/api/Tareas/";
             var respuesta = await Cliente.GetAsync(url);
 
             if (respuesta.StatusCode == HttpStatusCode.OK)
@@ -100,8 +100,8 @@ namespace AlumnosApp.Servicios
             Cliente.DefaultRequestHeaders.Accept.Clear();
             Cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var url = $"{WebApiURL}/api/TareaAlumnos/GetTareaAlumnosByEval/{evaluado}";
-            //var url = $"{WebApiURL}/api/TareaAlumnos/GetTareasRealizadasByAlumno/{idAlumno}/{evaluado}";
+            //var url = $"{WebApiURL}/api/TareaAlumnos/GetTareaAlumnosByEval/{evaluado}";
+            var url = $"{WebApiURL}/api/TareaAlumnos/GetTareasRealizadasByAlumno/{idAlumno}/{evaluado}";
             var respuesta = await Cliente.GetAsync(url);
 
             if (respuesta.StatusCode == HttpStatusCode.OK)

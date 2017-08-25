@@ -62,22 +62,38 @@ namespace AlumnosApp.Paginas
 
         private async void EnviarTarea_Clicked(object sender, EventArgs e)
         {
-            if (stream != null || !esNuevo)
+            if (!dato.Evaluado)
             {
-                ActualizarActivityIndicator(true);
+                DateTime fechaHoy = DateTime.Now.Date;
 
-                if (esNuevo)
-                    await ServicioWebApi.AddTareaAlumno(dato, stream);
+                if (fechaHoy <= dato.Tarea.FechaLimite)
+                {
+                    if (stream != null || !esNuevo)
+                    {
+                        ActualizarActivityIndicator(true);
+
+                        if (esNuevo)
+                            await ServicioWebApi.AddTareaAlumno(dato, stream);
+                        else
+                            await ServicioWebApi.UpdateTareaAlumno(dato, stream);
+                        ActualizarActivityIndicator(false);
+
+                        await DisplayAlert("Información", "Dato registrado con éxito", "OK");
+                        await Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Información", "Debes agregar un archivo primero", "OK");
+                    }
+                }
                 else
-                    await ServicioWebApi.UpdateTareaAlumno(dato, stream);
-                ActualizarActivityIndicator(false);
-
-                await DisplayAlert("Información", "Dato registrado con éxito", "OK");
-                await Navigation.PopAsync();
+                {
+                    await DisplayAlert("Información", "La tarea ya no puede ser enviada porque ha pasado el límite establecido", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Información", "Debes agregar un archivo primero", "OK");
+                await DisplayAlert("Información", "La tarea ya no puede ser enviada porque ya ha sido evaluada por el profesor", "OK");
             }
         }
     }
